@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom'
 
 
 
-const Menu = () => {
+const Menu = (props) => {
   const padding = {
     paddingRight: 5
   }
@@ -16,12 +16,12 @@ const Menu = () => {
     <Router>
       <div>
         <div>
-          <Link style={padding} to="/anecdotes">anecdotes</Link>
+          <Link style={padding} to="/">anecdotes</Link>
           <Link style={padding} to="/create">create</Link>
           <Link style={padding} to="/about">about</Link>
         </div>
-        <Route exact path="/anecdotes" render={() => <AnecdoteList />} />
-        <Route path="/create" render={() => <CreateNew />} />
+        <Route exact path="/" render={() => <AnecdoteList anecdotes = {props.anecdotes}/>} />
+        <Route path="/create" render={() => <CreateNew addNew = {props.addNew}/>} />
         <Route path="/about" render={() => <About />} />
       </div>
     </Router>
@@ -141,10 +141,9 @@ const App = () => {
   return (
     <div>
       <h1>Software anecdotes</h1>
-      <Menu />
-      <AnecdoteList anecdotes={anecdotes} />
-      <About />
-      <CreateNew addNew={addNew} />
+
+      <Menu addNew ={addNew} anecdotes = {anecdotes}/>
+    
       <Footer />
     </div>
   )
