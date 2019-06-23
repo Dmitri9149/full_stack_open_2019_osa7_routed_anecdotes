@@ -1,8 +1,4 @@
 import React, { useState } from 'react'
-import {
-  BrowserRouter as Router,
-  Route, Link, Redirect, withRouter
-} from 'react-router-dom'
 import Togglable from './components/Togglable'
 import Menu from './components/Menu'
 import Footer from './components/Footer'
@@ -52,7 +48,7 @@ const App = () => {
       <h1>Software anecdotes</h1>
 
       <Menu addNew ={addNew} anecdotes = {anecdotes}/>
-    
+
       <Footer />
     </div>
   )
