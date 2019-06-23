@@ -2,7 +2,7 @@ import React from 'react'
 import AnecdoteList from './AnecdoteList'
 import About from './About'
 import CreateNew from './CreateNew'
-
+import Anecdote from './Anecdote'
 
 import {
   BrowserRouter as Router,
