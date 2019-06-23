@@ -25,7 +25,7 @@ const Menu = (props) => {
         <Route exact path="/" render={() => <AnecdoteList anecdotes = {props.anecdotes}/>} />
         <Route path="/create" render={() => <CreateNew addNew = {props.addNew}/>} />
         <Route path="/about" render={() => <About />} />
-        <Route exact path="/anecdotess/:id" render={({ match }) =>
+        <Route exact path="/anecdotes/:id" render={({ match }) =>
           <Anecdote note={props.anecdoteById(match.params.id)} />
     } />
       </div>
