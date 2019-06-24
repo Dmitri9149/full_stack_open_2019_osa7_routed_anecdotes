@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Togglable from './components/Togglable'
 import Menu from './components/Menu'
 import Footer from './components/Footer'
 import ReactDOM from 'react-dom'
