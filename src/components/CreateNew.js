@@ -1,6 +1,5 @@
 import {
-  BrowserRouter as Router,
-  Route, Link, Redirect, withRouter
+  BrowserRouter as Router , withRouter
 } from 'react-router-dom'
 
 import React, { useState } from 'react'
