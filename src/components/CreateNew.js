@@ -1,3 +1,8 @@
+import {
+  BrowserRouter as Router,
+  Route, Link, Redirect, withRouter
+} from 'react-router-dom'
+
 import React, { useState } from 'react'
 
 const CreateNew = (props) => {
@@ -14,6 +19,7 @@ const CreateNew = (props) => {
       info,
       votes: 0
     })
+    props.history.push('/')
   }
 
   return (
@@ -32,11 +38,12 @@ const CreateNew = (props) => {
           url for more info
           <input name='info' value={info} onChange={(e) => setInfo(e.target.value)} />
         </div>
-        <button>create</button>
+        <button value = 'Generate'>create</button>
       </form>
     </div>
   )
 
 }
+const Create = withRouter(CreateNew)
 
-export default CreateNew
+export default Create

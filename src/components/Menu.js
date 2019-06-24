@@ -1,18 +1,25 @@
 import React from 'react'
 import AnecdoteList from './AnecdoteList'
 import About from './About'
-import CreateNew from './CreateNew'
+import Create from './CreateNew'
 import Anecdote from './Anecdote'
 
 import {
   BrowserRouter as Router,
-  Route, Link
+  Route, Link, Redirect
 } from 'react-router-dom'
 
-const Menu = (props) => {
+const Menu = ({anecdotes, addNew}) => {
   const padding = {
     paddingRight: 5
   }
+
+
+  const anecdoteById = (id) =>
+  anecdotes.find(a => a.id === id)
+
+  console.log('props.anecdotes', anecdotes)
+
   return (
     <div>
     <Router>
@@ -22,12 +29,15 @@ const Menu = (props) => {
           <Link style={padding} to="/create">create</Link>
           <Link style={padding} to="/about">about</Link>
         </div>
-        <Route exact path="/" render={() => <AnecdoteList anecdotes = {props.anecdotes}/>} />
-        <Route path="/create" render={() => <CreateNew addNew = {props.addNew}/>} />
-        <Route path="/about" render={() => <About />} />
+        <Route exact path="/" render={() => <AnecdoteList anecdotes = {anecdotes}/>} />
         <Route exact path="/anecdotes/:id" render={({ match }) =>
-          <Anecdote note={props.anecdoteById(match.params.id)} />
-    } />
+          <Anecdote anecdote={anecdoteById(match.params.id)} />} />
+
+        <Route path="/create" render={() => <Create addNew = {addNew}/>} />
+        <Route path="/about" render={() => <About />} />
+
+
+
       </div>
     </Router>
   </div>
