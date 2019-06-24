@@ -27,6 +27,8 @@ const App = () => {
   const addNew = (anecdote) => {
     anecdote.id = (Math.random() * 10000).toFixed(0)
     setAnecdotes(anecdotes.concat(anecdote))
+    setNotification (`a new anedote ${anecdote.content} created`)
+    setTimeout (()=> {setNotification('')}, 5000)
   }
 
   const anecdoteById = (id) =>
@@ -46,6 +48,9 @@ const App = () => {
   return (
     <div>
       <h1>Software anecdotes</h1>
+      <div>
+        {notification}
+      </div>
 
       <Menu addNew ={addNew} anecdotes = {anecdotes}/>
 
